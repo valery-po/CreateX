@@ -1,0 +1,141 @@
+.portfolio {
+   position: relative;
+   padding-bottom: 90px;
+}
+
+.portfolio-tabs-nav {
+    --gap: 20px;
+    transform: translateY(-60px);
+    margin-bottom: 61px;
+    @include flex-v-center;
+    &__item {
+        width: calc((100% - (var(--gap) * 4)) / 5 );
+     &:not(:last-child){
+         margin-right: var(--gap);
+     }
+
+     @include minitablet {
+         margin-bottom: 20px;
+        width: calc((100% - (var(--gap) * 2)) / 3 );
+      }
+
+      @include mobile {
+         margin-right: 0 !important;
+        width: 100%;
+     }
+    }
+
+    &__btn {
+        @include flex-column-center;
+        width: 100%;
+        min-height: 154px;
+        padding: 15px;
+        box-shadow: var(--main-shadow);
+        background-color: var(--color-light);
+        border-radius: 4px;
+        color: var(--color-primary);
+        justify-content: center;
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+        &--active {
+            color: var(--color-light);
+            background-color: var(--color-primary);
+            pointer-events: none;
+
+            .portfolio-tabs-nav__text {
+                color: var(--color-light);
+            }
+        }
+    }
+
+    &__icon {
+        display: block;
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        margin-bottom: 16px;
+        color: inherit;
+        fill: currentColor;
+        pointer-events: none;
+    }
+
+
+    &__text {
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+      line-height: 160%;
+      color: #9a9ca5;
+      transition: color 0.3s ease-in-out;
+      pointer-events: none;
+    }
+
+    @include minitablet {
+        justify-content: center;
+        flex-wrap: wrap;
+        transform: none;
+        margin-top: 30px;
+      }
+}
+
+.portfolio-tabs {
+    
+    &__item {
+        display: none;
+        grid-column: 4 span;
+    
+        &--visible {
+          display: block;
+        }
+    
+         &--visible-more {
+           display: block !important;
+         }
+      }
+    }
+
+.portfolio-more {
+    display: inline-flex;
+    margin-top: 60px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--color-gray);
+    transition: color 0.3s ease-in-out;
+
+    svg {
+        margin-right: 16px;
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+        color: inherit;
+        fill: currentColor;
+    }
+
+    &:focus {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+
+    &:hover {
+        color: var(--color-primary);
+    }
+
+    &:active {
+        color: var(--color-active);
+    }
+
+}
+
+.portfolio-tabs-nav__btn {
+    &:focus {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+    &:hover {
+        .portfolio-tabs-nav__text {
+            color: var(--color-ebony);
+        }
+    }
+}
